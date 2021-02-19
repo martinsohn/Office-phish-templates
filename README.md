@@ -37,7 +37,7 @@ Fake error message popup, which when closed opens notepad.exe
 ![](/word-demo.gif)
 
 #### Document presented to user
-![][word-document](/word-document.png)
+![](/word-document.png)
 
 #### Code to perform method
 ![](/word-code.png)
