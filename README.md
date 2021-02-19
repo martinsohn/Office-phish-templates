@@ -7,8 +7,9 @@ Once enabled, uses macros to reduce the risk of suspision from target user via v
 * Clear unwanted meta-data via Info -> Check for Issues -> Inspect Document
 * Add wanted meta-data to reduce risk of suspicion
 
-##Methods:
-###Excel
+## Methods
+
+### Excel
 Hide the sheet containing the fake message, show a legitimate-looking sheet, and opens calc.exe
 1. Add macro code to 'ThisWorkbook' function 'WorkbookOpen()' (Developer tab -> Visual Basic).
 2. Fill 'Sheet1' with legitimate-looking data
@@ -18,13 +19,13 @@ Hide the sheet containing the fake message, show a legitimate-looking sheet, and
 If you change sheet names, you must do so too in the code that switches sheets!
 
 #### Demonstration
-![excel-demo](/excel-demo.gif)
+![](/excel-demo.gif)
 
-#### Fake message
-![excel-document](/excel-document.PNG)
+#### Document presented to user
+![](/excel-document.PNG)
 
-#### Code to switch worksheets and open calc.exe
-![excel-code](/excel-code.PNG)
+#### Code to perform method
+![](/excel-code.PNG)
 
 ### Word
 Fake error message popup, which when closed opens notepad.exe
@@ -33,10 +34,10 @@ Fake error message popup, which when closed opens notepad.exe
 3. Review -> Restrict Editing: Allow only 'Filling in forms'.
 
 #### Demonstration
-![word-demo](/word-demo.gif)
+![](/word-demo.gif)
 
-#### Fake message
-![word-document](/word-document.PNG)
+#### Document presented to user
+![][word-document](/word-document.png)
 
-#### Code to switch worksheets and open calc.exe
-![word-code](/word-code.PNG)
+#### Code to perform method
+![](/word-code.png)
