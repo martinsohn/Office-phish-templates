@@ -2,6 +2,14 @@
 Tricks the target into enabling content (macros) with fake messages.
 Once enabled, uses macros to reduce the risk of suspision from target user via verious methods.
 
+Templates are available with a example macro code or without (macro code for each template can be seen in screenshots below):
+* With macros
+  * .xlsm
+  * .docm
+* Without macros
+  * .xlsx
+  * .docx
+
 ## Notes to increase success
 * Saving as 97-2003 document (eg. .xls) gives an old-style icon without the small script icon that you will see for e.g. .xlsm.
 * Clear unwanted meta-data via Info -> Check for Issues -> Inspect Document
