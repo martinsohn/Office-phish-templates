@@ -10,7 +10,27 @@ Templates are available with a example macro code or without (macro code for eac
   * .xlsx
   * .docx
 
-## Notes to increase success
+## Notes to defend against these
+* Disable macros in all Office applications
+  * https://www.microsoft.com/security/blog/2016/03/22/new-feature-in-office-2016-can-block-macros-and-help-prevent-infection/
+* Detect and block Office extensions used for macro documents in: spam filter, AV, Sysmon, etc.
+  * Some extensions
+    * .docm=Word.DocumentMacroEnabled.12
+    * .dotm=Word.TemplateMacroEnabled.12
+    * .xlam=Excel.AddInMacroEnabled
+    * .xlm=Excel.Macrosheet
+    * .xlsb=Excel.SheetBinaryMacroEnabled.12
+    * .xlsm=Excel.SheetMacroEnabled.12
+    * .xltm=Excel.TemplateMacroEnabled
+    * .potm=PowerPoint.TemplateMacroEnabled.12
+    * .ppsm=PowerPoint.SlideShowMacroEnabled.12
+    * .pptm=PowerPoint.ShowMacroEnabled.12
+    * .sldm=PowerPoint.SlideMacroEnabled.12
+  * Be aware that regular Office extensions may also contain macros, these include (but not limited to): .xls, .doc, .rtf, .wbk
+  * [Office Macros – file extensions, file format (content), and a few handling stereotypes…](https://www.hexacorn.com/blog/2016/11/05/office-macros-file-extensions-file-format-content-and-a-few-handling-stereotypes/)
+* Create user awareness!
+
+## Notes to increase phishing success
 * Saving as 97-2003 document (eg. .xls) gives an old-style icon without the small script icon that you will see for e.g. .xlsm.
 * Clear unwanted meta-data via Info -> Check for Issues -> Inspect Document
 * Add wanted meta-data to reduce risk of suspicion
