@@ -1,4 +1,4 @@
-# Office phish templates
+# Office phish templates and defence recommendations
 Tricks the target into enabling content (macros) with fake messages.
 Once enabled, uses macros to reduce the risk of suspision from target user via verious methods.
 
