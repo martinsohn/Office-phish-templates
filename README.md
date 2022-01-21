@@ -10,10 +10,11 @@ Templates are available with a example macro code or without (macro code for eac
   * .xlsx
   * .docx
 
-## Notes to defend against these
-* Disable macros in all Office applications
-  * https://www.microsoft.com/security/blog/2016/03/22/new-feature-in-office-2016-can-block-macros-and-help-prevent-infection/
-* Detect and block Office extensions used for macro documents in: spam filter, AV, Sysmon, etc.
+## Notes to defend against macro attacks
+* Enforce security settings for macros in all Office applications 
+  * Official Microsoft documentation: [Plan security settings for VBA macros in Office 2016](https://docs.microsoft.com/en-us/DeployOffice/security/plan-security-settings-for-vba-macros-in-office)
+  * My recommendation is to enforce ***Disable all except digitally signed macros*** and ***Block macros from running in Office files from the Internet***, even partly deploying such policy reduces risk.
+* Address risk of certain Office extensions used for macro documents
   * Some extensions
     * .docm=Word.DocumentMacroEnabled.12
     * .dotm=Word.TemplateMacroEnabled.12
@@ -26,9 +27,21 @@ Templates are available with a example macro code or without (macro code for eac
     * .ppsm=PowerPoint.SlideShowMacroEnabled.12
     * .pptm=PowerPoint.ShowMacroEnabled.12
     * .sldm=PowerPoint.SlideMacroEnabled.12
+  * Block in spam filter, mailflow rules, EDR/AV
+  * Remove default file associations, or associate with Notepad
+    * Check current associations with cmd.exe: `assoc | findstr /i "word excel powerpoint"`
+  * Add to detection rules
+    * Sysmon - Event ID 11: File Creation Events, Event ID 23: FileDelete
   * Be aware that regular Office extensions may also contain macros, these include (but not limited to): .xls, .doc, .rtf, .wbk
-  * [Office Macros – file extensions, file format (content), and a few handling stereotypes…](https://www.hexacorn.com/blog/2016/11/05/office-macros-file-extensions-file-format-content-and-a-few-handling-stereotypes/)
-* Create user awareness!
+* Enforce [attack surface reduction rules](https://docs.microsoft.com/en-us/microsoft-365/security/defender-endpoint/attack-surface-reduction?view=o365-worldwide), here are some which relates directly to Office
+  * Block all Office applications from creating child processes
+  * Block Office applications from creating executable content
+  * Block Office applications from injecting code into other processes
+  * Block Office communication application from creating child processes
+  * Block Win32 API calls from Office macros
+* Create user awareness
+  * The Danish sikkerdigital.dk has [provides user-focuced awareness material in both English and Danish at headline "Medarbejderpakken".](https://sikkerdigital.dk/virksomhed/test-og-vaerktoejer)
+* More information on macros and misconceptions: [Office Macros – file extensions, file format (content), and a few handling stereotypes…](https://www.hexacorn.com/blog/2016/11/05/office-macros-file-extensions-file-format-content-and-a-few-handling-stereotypes/)
 
 ## Notes to increase phishing success
 * Saving as 97-2003 document (eg. .xls) gives an old-style icon without the small script icon that you will see for e.g. .xlsm.
