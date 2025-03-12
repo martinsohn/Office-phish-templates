@@ -31,7 +31,8 @@ Templates are available with a example macro code or without (macro code for eac
   * Remove default file associations, or associate with Notepad
     * Check current associations with cmd.exe: `assoc | findstr /i "word excel powerpoint"`
   * Add to detection rules
-    * Sysmon - Event ID 11: File Creation Events, Event ID 23: FileDelete
+    * Sysmon - Event ID 1: Process creation, Event ID 3: Network connection, Event ID 11: FileCreate 
+    * [FalconFriday](https://github.com/FalconForceTeam/FalconFriday/tree/main) hunting query: [Suspicious office child process created](https://github.com/FalconForceTeam/FalconFriday/blob/main/0xFF-0069-Suspicious_office_child_process_created-Win.md)
   * Be aware that regular Office extensions may also contain macros, these include (but not limited to): .xls, .doc, .rtf, .wbk
 * Enforce [attack surface reduction rules](https://docs.microsoft.com/en-us/microsoft-365/security/defender-endpoint/attack-surface-reduction?view=o365-worldwide), here are some which relates directly to Office
   * Block all Office applications from creating child processes
@@ -40,8 +41,11 @@ Templates are available with a example macro code or without (macro code for eac
   * Block Office communication application from creating child processes
   * Block Win32 API calls from Office macros
 * Create user awareness
-  * The Danish sikkerdigital.dk has [provides user-focuced awareness material in both English and Danish at headline "Medarbejderpakken".](https://sikkerdigital.dk/virksomhed/test-og-vaerktoejer)
-* More information on macros and misconceptions: [Office Macros – file extensions, file format (content), and a few handling stereotypes…](https://www.hexacorn.com/blog/2016/11/05/office-macros-file-extensions-file-format-content-and-a-few-handling-stereotypes/)
+  * [UK 'National Cyber Security Centre': Phishing: Spot and report scam emails, texts, websites and calls](https://www.ncsc.gov.uk/collection/phishing-scams)
+  * [Danish 'Ministry of Resilience and Preparedness': User-fpcused awareness material in English and Danish at the headline "Medarbejderawarenessmateriale"](https://sikkerdigital.dk/virksomhed/test-og-vaerktoejer)
+* More guidance on macros
+  * [Office Macros – file extensions, file format (content), and a few handling stereotypes…](https://www.hexacorn.com/blog/2016/11/05/office-macros-file-extensions-file-format-content-and-a-few-handling-stereotypes/)
+  * [UK 'National Cyber Security Centre': Macro Security for Microsoft Office](https://www.ncsc.gov.uk/guidance/macro-security-for-microsoft-office)
 
 ## Notes to increase phishing success
 * Saving as 97-2003 document (eg. .xls) gives an old-style icon without the small script icon that you will see for e.g. .xlsm.
